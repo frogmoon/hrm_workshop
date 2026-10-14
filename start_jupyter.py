@@ -1,4 +1,4 @@
-"""프로젝트 가상환경으로 Jupyter를 띄우고 세 실습 노트북을 브라우저에서 엽니다."""
+"""프로젝트 가상환경으로 Jupyter를 띄우고 다섯 실습 노트북을 브라우저에서 엽니다."""
 
 import json
 import secrets
@@ -45,6 +45,8 @@ else:
     raise TimeoutError(f"서버 기동 시간 초과: {log_path}")
 
 for relative in (
+    "lab1/Lab1_Data_Modeling.ipynb",
+    "lab2/Lab2_Aggregation_and_Indexes.ipynb",
     "lab3/Lab3_Event_Quality_and_Anomaly.ipynb",
     "lab4/Lab4_Time_Series.ipynb",
     "lab5/Lab5_Search_Vector_RAG.ipynb"

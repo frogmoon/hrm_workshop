@@ -7,7 +7,7 @@ import nbformat
 from nbclient import NotebookClient
 
 ROOT = Path(__file__).resolve().parent
-for path in sorted(ROOT.glob(sys.argv[1] if len(sys.argv) > 1 else "lab[345]/*.ipynb")):
+for path in sorted(ROOT.glob(sys.argv[1] if len(sys.argv) > 1 else "lab[12345]/*.ipynb")):
     notebook = nbformat.read(path, as_version=4)
     nbformat.validate(notebook)
     for cell in notebook.cells:

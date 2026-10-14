@@ -1,9 +1,11 @@
 # hrm_workshop
 
-## Lab 3·4·5 Jupyter 실습
+## Lab 1·2·3·4·5 Jupyter 실습
 
 | 노트북 | 주요 내용 |
 |---|---|
+| [Lab 1](lab1/Lab1_Data_Modeling.ipynb) | BSON 타입, Entity별 복합키, 배열 조회, 최신 상태 검증, 부분 갱신·누락/null/빈 배열 |
+| [Lab 2](lab2/Lab2_Aggregation_and_Indexes.ipynb) | 일별/시간대별 OPEN, 완료 시간, 모델별 코호트, COLLSCAN/인덱스 explain 비교 |
 | [Lab 3](lab3/Lab3_Event_Quality_and_Anomaly.ipynb) | 멱등 적재, 최신 상태, 순서 역전, 180초 timer, 알림 해소 |
 | [Lab 4](lab4/Lab4_Time_Series.ipynb) | 문 열림 시간, 합성 온도, 일반/Time Series 집계 비교, explain, TTL |
 | [Lab 5](lab5/Lab5_Search_Vector_RAG.ipynb) | 한국어 Search, 실제 다국어 임베딩, Vector Search, Hybrid, RAG 프롬프트·인용·평가 |
@@ -22,13 +24,16 @@ MongoDB URI는 `MDB_MCP_CONNECTION_STRING` 환경변수, 로컬 인증 파일
 `~/.config/opencode/mongodb-workshop-uri`, 또는 노트북의 숨김 입력으로 제공합니다.
 비밀번호는 노트북이나 Git에 저장하지 않습니다.
 
-실습은 `hrm_workshop_lab3`, `hrm_workshop_lab4`, `hrm_workshop_lab5` DB에 데이터를 쓰고
+실습은 `hrm_workshop_lab1`부터 `hrm_workshop_lab5`까지 Lab별 전용 DB에 데이터를 쓰고
 일반/Search/Vector Search 인덱스를 생성하므로 DB 쓰기·인덱스 생성 권한이 필요합니다.
 검색 인덱스의 비동기 빌드를 기다리며 첫 임베딩 모델 다운로드에 시간이 걸릴 수 있습니다.
 
 ### 데이터와 기대 결과
 
 - 원본 `lab2`: 기기 24대, 이벤트 4,959건(mode 3,360 / open 800 / close 799).
+- Lab 1: 기존 기기 3건·A 이벤트 18건·상태 12건. 최신 A 상태 6건을 이력과 비교합니다.
+- Lab 2: LAB2-D01의 한국 시간 2026-10-11 하루는 OPEN 4회, 완료 3구간, 합계 300초·평균 100초.
+  모델별 집계는 관측 완료 기기 24대를 분모로 포함합니다.
 - Lab 3: 원본 전체 이력 적재, 상태 갱신은 12개 원본 도어 이벤트 및 별도 합성 경계 시나리오.
   동일 ID 재전송 후 건수 유지, 오래된 OPEN 뒤 CLOSED 유지, 179초 제외·180/181초 감지.
 - Lab 4: 실제 CLOSE의 참조 OPEN을 검증한 열림 시간 799건과 **합성 온도 3,456건**.
@@ -38,6 +43,7 @@ MongoDB URI는 `MDB_MCP_CONNECTION_STRING` 환경변수, 로컬 인증 파일
 - `autoEmbed`, `$rerank`, TTL은 별도 선택 실행 셀입니다. 지원 버전·Atlas 설정을 확인하세요.
 
 `build_notebooks.py`는 노트북 재생성용이며 실행 결과를 초기화합니다.
+`build_lab12_notebooks.py`는 Lab 1·2만 재생성합니다.
 `validate_notebooks.py`는 실제 DB 쓰기를 포함하여 노트북을 실행하고 결과를 저장합니다.
 
 ### Kafka 연결 가이드
