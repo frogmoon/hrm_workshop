@@ -4,6 +4,7 @@ from pathlib import Path
 import textwrap
 import sys
 import nbformat as nbf
+from shared_db_guidance import annotate_shared_db
 
 ROOT = Path(__file__).resolve().parent
 
@@ -25,6 +26,7 @@ def save(lab, filename, cells):
     notebook = nbf.v4.new_notebook(cells=cells, metadata={
         "kernelspec": {"display_name": "HRM Workshop (Python)", "language": "python", "name": "hrm-workshop"},
         "language_info": {"name": "python"}})
+    annotate_shared_db(notebook, lab)
     nbf.validate(notebook)
     nbf.write(notebook, ROOT / lab / filename)
 

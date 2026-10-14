@@ -7,8 +7,16 @@ import nbformat
 from nbclient import NotebookClient
 
 ROOT = Path(__file__).resolve().parent
-for path in sorted(ROOT.glob(sys.argv[1] if len(sys.argv) > 1 else "lab[12345]/*.ipynb")):
+arguments = [a for a in sys.argv[1:] if a != "--instructor"]
+for path in sorted(ROOT.glob(arguments[0] if arguments else "Shared_DB_Participant.ipynb")):
     notebook = nbformat.read(path, as_version=4)
+    if any(c.metadata.get("execution_role") == "instructor_only" for c in notebook.cells):
+        if "--instructor" not in sys.argv:
+            raise RuntimeError("강사 DB 변경 검증에는 --instructor를 명시하세요.")
+        # 검증 실행의 메모리 안에서만 역할을 활성화하고 저장본은 False로 유지합니다.
+        for cell in notebook.cells:
+            if cell.cell_type == "code" and cell.metadata.get("shared_db_generated"):
+                cell.source = cell.source.replace("INSTRUCTOR_MODE = False", "INSTRUCTOR_MODE = True")
     nbformat.validate(notebook)
     for cell in notebook.cells:
         if cell.cell_type == "code":
@@ -18,6 +26,9 @@ for path in sorted(ROOT.glob(sys.argv[1] if len(sys.argv) > 1 else "lab[12345]/*
     print("실행 시작:", path.name, flush=True)
     NotebookClient(notebook, timeout=900, kernel_name="hrm-workshop",
                    resources={"metadata": {"path": str(path.parent)}}).execute()
+    for cell in notebook.cells:
+        if cell.cell_type == "code" and cell.metadata.get("shared_db_generated"):
+            cell.source = cell.source.replace("INSTRUCTOR_MODE = True", "INSTRUCTOR_MODE = False")
     nbformat.write(notebook, path)
     print("실행 완료:", path.name, flush=True)
     for cell in notebook.cells:

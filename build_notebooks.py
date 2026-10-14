@@ -5,6 +5,7 @@ import sys
 import textwrap
 import nbformat as nbf
 from kafka_notebook_guide import kafka_guide_cells
+from shared_db_guidance import annotate_shared_db
 
 ROOT = Path(__file__).resolve().parent
 
@@ -28,6 +29,7 @@ def save(lab, filename, cells):
     notebook = nbf.v4.new_notebook(cells=cells + kafka_guide_cells(lab), metadata={
         "kernelspec": {"display_name": "HRM Workshop (Python)", "language": "python", "name": "hrm-workshop"},
         "language_info": {"name": "python"}})
+    annotate_shared_db(notebook, lab)
     nbf.validate(notebook)
     nbf.write(notebook, folder / filename)
 

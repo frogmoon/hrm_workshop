@@ -2,6 +2,17 @@
 
 ## Lab 1·2·3·4·5 Jupyter 실습
 
+### 여러 사람이 하나의 DB를 사용할 때
+
+- **참가자:** [공유 DB 참가자 조회 노트북](Shared_DB_Participant.ipynb)을 실행합니다.
+  Lab 1~5별 독립 코드로 조회·검증만 수행하며 DB를 변경하지 않습니다.
+- **강사 1명:** 각 Lab의 🔴 표시 셀에서 적재·컬렉션/인덱스 생성·갱신·시나리오를 준비합니다.
+  `INSTRUCTOR_MODE=True`를 명시해야 실행됩니다. 배포 기본값은 False입니다.
+- **🟢 셀:** 조회·확인·로컬 계산은 동시 실행 가능합니다. 기존 Lab의 셀 변수 의존성을 피하려면 참가자 노트북을 사용하세요.
+- 데이터 준비 후 강사가 완료를 안내합니다. 참가자는 원래 Lab 전체에 Run All을 실행하지 않습니다.
+- 재전송·timer 테스트도 DB 변경이므로 강사만 시연합니다. Time Series·TTL·Kafka 재발행은 중복/상태 변화를 만들 수 있습니다.
+- 준비와 조회를 서버 권한으로도 분리하려면 참가자에게 read 역할의 DB 계정을 사용합니다.
+
 | 노트북 | 주요 내용 |
 |---|---|
 | [Lab 1](lab1/Lab1_Data_Modeling.ipynb) | BSON 타입, Entity별 복합키, 배열 조회, 최신 상태 검증, 부분 갱신·누락/null/빈 배열 |
@@ -19,7 +30,7 @@ python3 -m venv .venv
 .venv/bin/jupyter lab
 ```
 
-각 노트북에서 `HRM Workshop (Python)` 커널을 선택한 후 위에서 아래로 실행합니다.
+각 노트북에서 `HRM Workshop (Python)` 커널을 선택합니다. 공유 환경 참가자는 참가자 조회 노트북을 사용합니다.
 MongoDB URI는 `MDB_MCP_CONNECTION_STRING` 환경변수, 로컬 인증 파일
 `~/.config/opencode/mongodb-workshop-uri`, 또는 노트북의 숨김 입력으로 제공합니다.
 비밀번호는 노트북이나 Git에 저장하지 않습니다.
@@ -44,7 +55,10 @@ MongoDB URI는 `MDB_MCP_CONNECTION_STRING` 환경변수, 로컬 인증 파일
 
 `build_notebooks.py`는 노트북 재생성용이며 실행 결과를 초기화합니다.
 `build_lab12_notebooks.py`는 Lab 1·2만 재생성합니다.
-`validate_notebooks.py`는 실제 DB 쓰기를 포함하여 노트북을 실행하고 결과를 저장합니다.
+`validate_notebooks.py`는 노트북을 실행하고 결과를 저장합니다. 강사 Lab 검증에는 실제 DB 쓰기가 포함됩니다.
+기본 실행은 참가자 노트북 검증이며, 강사 Lab 실행은 예를 들어
+`.venv/bin/python validate_notebooks.py 'lab1/*.ipynb' --instructor`로 명시합니다.
+`update_shared_db_guides.py`는 기존 출력 보존 상태에서 역할 표시를 갱신합니다.
 
 ### Kafka 연결 가이드
 

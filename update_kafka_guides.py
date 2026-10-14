@@ -6,6 +6,7 @@ import re
 from pathlib import Path
 import nbformat
 from kafka_notebook_guide import kafka_guide_cells
+from shared_db_guidance import annotate_shared_db
 
 root = Path(__file__).resolve().parent
 for lab in ("lab3", "lab4", "lab5"):
@@ -20,6 +21,7 @@ for lab in ("lab3", "lab4", "lab5"):
             # 가이드 코드도 Python 구문/JSON 형식 검사를 수행합니다.
             ast.parse(snippet) if language == "python" else json.loads(snippet)
     notebook.cells = original + guide
+    annotate_shared_db(notebook, lab)
     nbformat.validate(notebook)
     assert sum(len(c.get("outputs", [])) for c in notebook.cells) == output_count
     nbformat.write(notebook, path)
