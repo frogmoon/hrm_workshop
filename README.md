@@ -17,7 +17,7 @@
 ### [Session-01] 환경 및 실습 안내 - Atlas 생성, Compass 설치, 데이터셋 및 실습 절차 확인
 - Compass 설치: https://www.mongodb.com/docs/compass/
 - Connection string
-  - mongodb+srv://main_user:main_user_password@dev.fla1e.mongodb.net/
+  - mongodb+srv://<db_username>:<db_password>@hands-on-workshop.dmiwn0n.mongodb.net/ 
 
 ### [Session-02] Relational Migrator - Relational Migrator를 이용한 데이터 마이그레이션
 - Relational Migrator 설치: https://www.mongodb.com/docs/relational-migrator/getting-started/
