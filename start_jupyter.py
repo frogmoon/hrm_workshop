@@ -45,6 +45,7 @@ else:
     raise TimeoutError(f"서버 기동 시간 초과: {log_path}")
 
 for relative in (
+    "Lab_Guide.ipynb",
     "Shared_DB_Participant.ipynb",
     "lab1/Lab1_Data_Modeling.ipynb",
     "lab2/Lab2_Aggregation_and_Indexes.ipynb",
