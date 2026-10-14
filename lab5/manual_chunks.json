@@ -1,0 +1,194 @@
+[
+  {
+    "_id": "M1-DRAIN",
+    "modelCode": "LAB2-MODEL-1",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "배수 호스 결빙과 물 고임",
+    "sectionPath": "배수",
+    "text": "냉장고 아래에 물이 고이면 배수 호스 결빙 또는 배수구 막힘 여부를 점검한다. 교육용 E21은 이 배수 시나리오의 가상 코드이다.",
+    "errorCodes": [
+      "E21"
+    ],
+    "source": "lab5/manual_chunks.json",
+    "page": 1,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  },
+  {
+    "_id": "M1-DOOR",
+    "modelCode": "LAB2-MODEL-1",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "문 열림 시간 알림",
+    "sectionPath": "도어",
+    "text": "문이 180초 이상 열린 상태이면 알림을 기록한다. 닫힘 이벤트가 없어도 주기적으로 열린 시간을 평가한다.",
+    "errorCodes": [],
+    "source": "lab5/manual_chunks.json",
+    "page": 2,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  },
+  {
+    "_id": "M1-TEMP",
+    "modelCode": "LAB2-MODEL-1",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "냉장실 온도 상승",
+    "sectionPath": "온도",
+    "text": "냉장실이 충분히 차갑지 않으면 문 닫힘과 설정 온도를 확인한다. 교육용 E31은 온도 상승을 나타내는 가상 코드이다.",
+    "errorCodes": [
+      "E31"
+    ],
+    "source": "lab5/manual_chunks.json",
+    "page": 3,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  },
+  {
+    "_id": "M1-MODE",
+    "modelCode": "LAB2-MODEL-1",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "운전 모드 설정",
+    "sectionPath": "모드",
+    "text": "운전 모드 MODE_01은 이 실습의 합성 값이다. 모드 스냅샷은 상태 관측이며 원본 문서의 제품 의미를 추정하지 않는다.",
+    "errorCodes": [],
+    "source": "lab5/manual_chunks.json",
+    "page": 4,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  },
+  {
+    "_id": "M2-DRAIN",
+    "modelCode": "LAB2-MODEL-2",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "배수 호스 결빙과 물 고임",
+    "sectionPath": "배수",
+    "text": "냉장고 아래에 물이 고이면 배수 호스 결빙 또는 배수구 막힘 여부를 점검한다. 교육용 E21은 이 배수 시나리오의 가상 코드이다.",
+    "errorCodes": [
+      "E21"
+    ],
+    "source": "lab5/manual_chunks.json",
+    "page": 1,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  },
+  {
+    "_id": "M2-DOOR",
+    "modelCode": "LAB2-MODEL-2",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "문 열림 시간 알림",
+    "sectionPath": "도어",
+    "text": "문이 180초 이상 열린 상태이면 알림을 기록한다. 닫힘 이벤트가 없어도 주기적으로 열린 시간을 평가한다.",
+    "errorCodes": [],
+    "source": "lab5/manual_chunks.json",
+    "page": 2,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  },
+  {
+    "_id": "M2-TEMP",
+    "modelCode": "LAB2-MODEL-2",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "냉장실 온도 상승",
+    "sectionPath": "온도",
+    "text": "냉장실이 충분히 차갑지 않으면 문 닫힘과 설정 온도를 확인한다. 교육용 E31은 온도 상승을 나타내는 가상 코드이다.",
+    "errorCodes": [
+      "E31"
+    ],
+    "source": "lab5/manual_chunks.json",
+    "page": 3,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  },
+  {
+    "_id": "M2-MODE",
+    "modelCode": "LAB2-MODEL-2",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "운전 모드 설정",
+    "sectionPath": "모드",
+    "text": "운전 모드 MODE_01은 이 실습의 합성 값이다. 모드 스냅샷은 상태 관측이며 원본 문서의 제품 의미를 추정하지 않는다.",
+    "errorCodes": [],
+    "source": "lab5/manual_chunks.json",
+    "page": 4,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  },
+  {
+    "_id": "M3-DRAIN",
+    "modelCode": "LAB2-MODEL-3",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "배수 호스 결빙과 물 고임",
+    "sectionPath": "배수",
+    "text": "냉장고 아래에 물이 고이면 배수 호스 결빙 또는 배수구 막힘 여부를 점검한다. 교육용 E21은 이 배수 시나리오의 가상 코드이다.",
+    "errorCodes": [
+      "E21"
+    ],
+    "source": "lab5/manual_chunks.json",
+    "page": 1,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  },
+  {
+    "_id": "M3-DOOR",
+    "modelCode": "LAB2-MODEL-3",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "문 열림 시간 알림",
+    "sectionPath": "도어",
+    "text": "문이 180초 이상 열린 상태이면 알림을 기록한다. 닫힘 이벤트가 없어도 주기적으로 열린 시간을 평가한다.",
+    "errorCodes": [],
+    "source": "lab5/manual_chunks.json",
+    "page": 2,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  },
+  {
+    "_id": "M3-TEMP",
+    "modelCode": "LAB2-MODEL-3",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "냉장실 온도 상승",
+    "sectionPath": "온도",
+    "text": "냉장실이 충분히 차갑지 않으면 문 닫힘과 설정 온도를 확인한다. 교육용 E31은 온도 상승을 나타내는 가상 코드이다.",
+    "errorCodes": [
+      "E31"
+    ],
+    "source": "lab5/manual_chunks.json",
+    "page": 3,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  },
+  {
+    "_id": "M3-MODE",
+    "modelCode": "LAB2-MODEL-3",
+    "countryCode": "KR",
+    "language": "ko",
+    "documentType": "synthetic_training_manual",
+    "title": "운전 모드 설정",
+    "sectionPath": "모드",
+    "text": "운전 모드 MODE_01은 이 실습의 합성 값이다. 모드 스냅샷은 상태 관측이며 원본 문서의 제품 의미를 추정하지 않는다.",
+    "errorCodes": [],
+    "source": "lab5/manual_chunks.json",
+    "page": 4,
+    "chunkVersion": 1,
+    "datasetTag": "SYNTHETIC_LAB5_MANUAL_V1"
+  }
+]
